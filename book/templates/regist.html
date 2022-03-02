@@ -1,0 +1,89 @@
+{% extends 'create.html' %}
+{% block content %}
+<div class="container padd">
+    <legend class="create_account">انشاء حساب</legend>
+
+    <form method="POST" action="">
+        {{ form.hidden_tag() }}
+
+        <div class="register">
+            <div class="form_group">
+                {% if form.firstname.errors %}
+                    {{ form.firstname(class="form_first") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.firstname.errors %}
+                             <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.firstname(class="form_first") }}
+                {% endif %}
+            </div>
+            <div class="form_group_2">
+                {% if form.lastname.errors %}
+                    {{ form.lastname(class="form_first") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.lastname.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.lastname(class="form_first") }}
+                {% endif %}
+
+            </div>
+        </div>
+        <div class="register">
+            <div class="form_group_2">
+                {% if form.email.errors %}
+                    {{ form.email(class="form_email") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.email.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.email(class="form_email") }}
+                {% endif %}
+            </div>
+        </div>
+        <div class="register">
+            <div class="form_group_2">
+                {% if form.password.errors %}
+                    {{ form.password(class="form_email") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.password.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+            {% else %}
+                {{ form.password(class="form_email") }}
+            {% endif %}
+            </div>
+        </div>
+        <div class="register">
+            <div class="form_group_2">
+                {% if form.confirm_password.errors %}
+                    {{ form.confirm_password(class="form_email") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.confirm_password.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.confirm_password(class="form_email") }}
+                {% endif %}
+            </div>
+        </div>
+        <div class="register">
+            <div class="form_group_2">
+                {{ form.submit(class="form_submit") }}
+            </div>
+            <small class="text_muted">
+                هل لديك حساب؟ <a href="{{ url_for('login') }}">تسجيل دخول</a>
+            </small>
+        </div>
+    </form>
+</div>
+
+{% endblock content %}

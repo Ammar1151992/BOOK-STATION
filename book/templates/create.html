@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% if title %}
+    <title>BOOK STATION - {{ title }}</title>
+    {% else %}
+    <title>BOOK STATION</title>
+    {% endif %}
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../static/style.css">
+    <link rel="icon" href="../static/image/logo.png">
+</head>
+
+<body>
+    <header>
+        <!-- START NAVBAR -->
+     
+            <div class="bacg_nav">
+            <div class="container">
+                <div class="nav_parent_main">
+                    <div class="nav_left">
+                        <ul class="left">
+                            <li>
+                                <h3>BOOK</h3>
+                            </li>
+                            <li>
+                                <h3><span>S</span>TATION</h3>
+                            </li>
+                        </ul>
+                        <img src="../static/image/logo.png" alt="Logo">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <div class="{{ category }}">{{ message }}</div>
+            {% endfor %}
+        {% endif %}
+        {% endwith %}
+        {% block content %} {% endblock %}
+    </header>
+    <footer>
+
+        <div class="footer_bacg">
+            <div class="container">
+                <div class="footer_child">
+                    <div class="grid_2">
+                        <div class="write_about">
+                            <p>BOOK <span class="name">S</span>TATION</p>
+                            <p>
+                                <span class="dec">
+                                    اكبر متجر عربي في العراق، يحتوي على العديد من الكتب <br>العربية والانجليزية
+                                    بمختلف
+                                    الاقسام، كتابك لِبابك اينما كنت.
+                                </span>
+                            </p>
+                            <button class="buttom">اطلب كتاب</button>
+                        </div>
+
+                        <div class="about">
+                            <ul>
+                                <li><a href="#">اتصل بنا</a></li>
+                                <li><a href="#">طلباتي</a></li>
+                                <li><a href="#">لديك استفسار؟ اتصل على07808844404</a></li>
+                                <li><a href="#">تواصل معنا عبر المواقع:</a>
+                                    <i class="net fa fa-facebook-square fa-lg"></i>
+                                    <i class="net fa fa-instagram fa-lg"></i>
+
+                                </li>
+                                <li><a href="#">عن BOOK STATION</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </footer>
+
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="../static/main.js"></script>
+</body>
+
+</html>

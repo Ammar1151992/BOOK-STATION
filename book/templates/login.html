@@ -1,0 +1,64 @@
+{% extends 'create.html' %}
+{% block content %}
+<div class="container padd">
+    <legend class="create_account">تسجيل دخول</legend>
+
+    <form method="POST" action="">
+        {{ form.hidden_tag() }}
+        <div class="register">
+            <div class="form_group_2">
+                {% if form.email.errors %}
+                    {{ form.email(class="form_email") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.email.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.email(class="form_email") }}
+                {% endif %}
+            </div>
+        </div>
+        <div class="register">
+            <div class="form_group_2">
+                {% if form.password.errors %}
+                    {{ form.password(class="form_email") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.password.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+            {% else %}
+                {{ form.password(class="form_email") }}
+            {% endif %}
+            </div>
+        </div>
+        <div class="register">
+           
+            <div class="form_group_2">
+                {{ form.submit(class="form_submit_sin") }}
+            </div>
+           
+            <small class="text_muted">
+                هل تريد انشاء حساب؟ <a href="{{ url_for('regist') }}">انشاء حساب</a>
+            </small>
+        </div>
+        
+        <small class="forget">
+            <a href="#">هل نسيت كلمة السر؟</a>
+        </small>
+    </form>
+</div>
+
+{% endblock content %}
+
+
+<!-- {% with msgs = get_flashed_messages(with_categories=true) %}
+{% if msgs %}
+{% for cat,msg in msgs %}
+<div class="alret_close alret_open-{{ cat }}">
+    {{ msg }}
+</div>
+{% endfor %}
+{% endif %}
+{% endwith %} -->
