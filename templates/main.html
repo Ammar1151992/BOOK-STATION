@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% if title %}
+    <title>BOOK STATION - {{ title }}</title>
+    {% else %}
+    <title>BOOK STATION</title>
+    {% endif %}
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="icon" href="{{ url_for('static', filename='image/logo.png') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='flask.css') }}">
+
+
+
+</head>
+
+<body>
+ 
+    <header>
+        <!-- START NAVBAR -->
+        <nav>
+            <div class="container">
+                <div class="nav_parent">
+                    <div class="nav_right">
+                        {% if current_user.is_authenticated %}
+                        <ul class="right">
+                            <li class="bag"><i class="fas fa fa-shopping-bag fa-lg shoppingCartButton"></i><span
+                                    class="number0fcarts"></span></i></li>
+                            <li class="sign_in"><a href="{{ url_for('logout') }}">تسجيل خروج</a></li>
+                        </ul>
+                        {% else %}
+                        <ul class="right">
+                            <li class="sign_in"><a href="/regist"> انشاء حساب</a></li>
+                            <li class="sign_in sin"><a href="/login">تسجيل دخول</a></li>
+                        </ul>
+                        {% endif %}
+                    </div>
+
+                    <div class="nav_center">
+                        <div class="center">
+
+                            <div class="search_drop">
+                                <input type="text" class="input" placeholder="البحث">
+                                <i class="fas fa fa-search fa-lg"></i>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="nav_left">
+                        <ul class="left">
+                            <li>
+                                <h3>BOOK</h3>
+                            </li>
+                            <li>
+                                <h3><span>S</span>TATION</h3>
+                            </li>
+                        </ul>
+                        <img src="{{ url_for('static', filename='image/logo.png') }}" alt="Logo">
+                    </div>
+                </div>
+
+                <div class="nav_content">
+                    {% if current_user.is_authenticated %}
+                    <ul class="nav_content_main">
+                        <li><a href="/home">الرئيسية</a></li>
+
+                        <li class="">
+
+                            <div class="sidenav">
+                                <button class="dropdown-btn">
+                                     الكتب الانجيلزية
+                                    <i class="fa fa-caret-down"></i>
+                                </button>
+                                <div class="dropdown-container">
+                                    <a href="#">Architecture</a>
+                                    <a href="#">Antiques & Collectibles</a>
+                                    <a href="#">Art</a>
+                                    <a href="#">Graphic Novels and comics</a>
+                                    <a href="#">Juvenile Fiction</a>
+                                    <a href="#">Computers</a>
+                                    <a href="#">Self-Help</a>
+                                    <a href="#">Design</a>
+                                    <a href="#">Foreign Language Study</a>
+                                    <a href="#">Fiction</a>
+                                    <a href="#">Business & Economics</a>
+                                </div>
+                              </div>
+
+
+                        </li>
+
+                        <li class="">
+
+                            <div class="sidenav">
+                                <button class="dropdown-btn">
+                                    الكتب العربية
+                                    <i class="fa fa-caret-down"></i>
+                                </button>
+                                <div class="dropdown-container">
+                                    <button class="dropdown-btn pddd">
+                                        الادب والخيال
+                                        <i class="fa fa-caret-left"></i>
+                                    </button>
+                                    <div class="dropdown-container_left">
+                                        <a href="{{ url_for('selected', type='novels') }}">الروايات</a>
+                                        <a href="#">القصص</a>
+                                        <a href="#">الاعمال الكاملة</a>
+                                        <a href="#">المسرحيات</a>
+                                        <a href="#">تأريخ الادب</a>
+                                        <a href="#">الادب الاسلامي</a>
+                                    </div>
+
+                                    <button class="dropdown-btn pddd">
+                                        التأريخ والجغرافية
+                                        <i class="fa fa-caret-left"></i>
+                                    </button>
+                                    <div class="dropdown-container_left">
+                                        <a href="#">الروايات</a>
+                                        <a href="#">القصص</a>
+                                        <a href="#">الاعمال الكاملة</a>
+                                        <a href="#">المسرحيات</a>
+                                        <a href="#">تأريخ الادب</a>
+                                        <a href="#">الادب الاسلامي</a>
+                                    </div>
+
+                                    <button class="dropdown-btn pddd">
+                                        القصص
+                                        <i class="fa fa-caret-left"></i>
+                                    </button>
+                                    <div class="dropdown-container_left">
+                                        <a href="#">الروايات</a>
+                                        <a href="#">القصص</a>
+                                        <a href="#">الاعمال الكاملة</a>
+                                        <a href="#">المسرحيات</a>
+                                        <a href="#">تأريخ الادب</a>
+                                        <a href="#">الادب الاسلامي</a>
+                                    </div>
+
+                                    <button class="dropdown-btn pddd">
+                                        الاسرة والطفل
+                                        <i class="fa fa-caret-left"></i>
+                                    </button>
+                                    <div class="dropdown-container_left">
+                                        <a href="#">الروايات</a>
+                                        <a href="#">القصص</a>
+                                        <a href="#">الاعمال الكاملة</a>
+                                        <a href="#">المسرحيات</a>
+                                        <a href="#">تأريخ الادب</a>
+                                        <a href="#">الادب الاسلامي</a>
+                                    </div>
+
+                                    <button class="dropdown-btn pddd">
+                                        الكتب السياسية
+                                        <i class="fa fa-caret-left"></i>
+                                    </button>
+                                    <div class="dropdown-container_left">
+                                        <a href="#">الروايات</a>
+                                        <a href="#">القصص</a>
+                                        <a href="#">الاعمال الكاملة</a>
+                                        <a href="#">المسرحيات</a>
+                                        <a href="#">تأريخ الادب</a>
+                                        <a href="#">الادب الاسلامي</a>
+                                    </div>
+
+                                    <button class="dropdown-btn pddd">
+                                        العلوم والطبيعة
+                                        <i class="fa fa-caret-left"></i>
+                                    </button>
+                                    <div class="dropdown-container_left">
+                                        <a href="#">الروايات</a>
+                                        <a href="#">القصص</a>
+                                        <a href="#">الاعمال الكاملة</a>
+                                        <a href="#">المسرحيات</a>
+                                        <a href="#">تأريخ الادب</a>
+                                        <a href="#">الادب الاسلامي</a>
+                                    </div>
+
+                                    <button class="dropdown-btn pddd">
+                                        الرياضة والتسلية
+                                        <i class="fa fa-caret-left"></i>
+                                    </button>
+                                    <div class="dropdown-container_left">
+                                        <a href="#">الروايات</a>
+                                        <a href="#">القصص</a>
+                                        <a href="#">الاعمال الكاملة</a>
+                                        <a href="#">المسرحيات</a>
+                                        <a href="#">تأريخ الادب</a>
+                                        <a href="#">الادب الاسلامي</a>
+                                    </div>
+
+                                    <button class="dropdown-btn pddd">
+                                        الاقتصاد والاعمال
+                                        <i class="fa fa-caret-left"></i>
+                                    </button>
+                                    <div class="dropdown-container_left">
+                                        <a href="#">الروايات</a>
+                                        <a href="#">القصص</a>
+                                        <a href="#">الاعمال الكاملة</a>
+                                        <a href="#">المسرحيات</a>
+                                        <a href="#">تأريخ الادب</a>
+                                        <a href="#">الادب الاسلامي</a>
+                                    </div>
+
+                                    <button class="dropdown-btn pddd">
+                                        الكتب الاسلامية
+                                        <i class="fa fa-caret-left"></i>
+                                    </button>
+                                    <div class="dropdown-container_left">
+                                        <a href="#">الروايات</a>
+                                        <a href="#">القصص</a>
+                                        <a href="#">الاعمال الكاملة</a>
+                                        <a href="#">المسرحيات</a>
+                                        <a href="#">تأريخ الادب</a>
+                                        <a href="#">الادب الاسلامي</a>
+                                    </div>
+
+                                    <button class="dropdown-btn pddd">
+                                        الفنون
+                                        <i class="fa fa-caret-left"></i>
+                                    </button>
+                                    <div class="dropdown-container_left">
+                                        <a href="#">الروايات</a>
+                                        <a href="#">القصص</a>
+                                        <a href="#">الاعمال الكاملة</a>
+                                        <a href="#">المسرحيات</a>
+                                        <a href="#">تأريخ الادب</a>
+                                        <a href="#">الادب الاسلامي</a>
+                                    </div>
+
+                                    <button class="dropdown-btn pddd">
+                                        الكومبيوتر والانترنت
+                                        <i class="fa fa-caret-left"></i>
+                                    </button>
+                                    <div class="dropdown-container_left">
+                                        <a href="#">الروايات</a>
+                                        <a href="#">القصص</a>
+                                        <a href="#">الاعمال الكاملة</a>
+                                        <a href="#">المسرحيات</a>
+                                        <a href="#">تأريخ الادب</a>
+                                        <a href="#">الادب الاسلامي</a>
+                                    </div>
+
+                                    <button class="dropdown-btn pddd">
+                                        الفلسفة
+                                        <i class="fa fa-caret-left"></i>
+                                    </button>
+                                    <div class="dropdown-container_left">
+                                        <a href="#">الروايات</a>
+                                        <a href="#">القصص</a>
+                                        <a href="#">الاعمال الكاملة</a>
+                                        <a href="#">المسرحيات</a>
+                                        <a href="#">تأريخ الادب</a>
+                                        <a href="#">الادب الاسلامي</a>
+                                    </div>
+
+                                    <button class="dropdown-btn pddd">
+                                        السير والمذكرات
+                                        <i class="fa fa-caret-left"></i>
+                                    </button>
+                                    <div class="dropdown-container_left">
+                                        <a href="#">الروايات</a>
+                                        <a href="#">القصص</a>
+                                        <a href="#">الاعمال الكاملة</a>
+                                        <a href="#">المسرحيات</a>
+                                        <a href="#">تأريخ الادب</a>
+                                        <a href="#">الادب الاسلامي</a>
+                                    </div>
+                                </div>
+                              </div>
+                        </li>      
+                        <li><a href="preorder.html">المشتريات</a></li>
+                        <li><a href="about.html">تواصل معنا</a></li>
+
+                    </ul>
+                  {% else %}
+                  <ul class="nav_content_main">
+                    <li><a href="/regist">الرئيسية</a></li>
+
+                    <li class="">
+
+                        <div class="sidenav">
+                            <button class="dropdown-btn">
+                               <a href="/regist">الكتب الانجيلزية</a> 
+                                <i class="fa fa-caret-down"></i>
+                            </button>
+                          </div>
+
+
+                    </li>
+
+                    <li class="">
+
+                        <div class="sidenav">
+                            <button class="dropdown-btn" src="/regist">
+                                <a href="/regist">الكتب العربية</a> 
+                                <i class="fa fa-caret-down"></i>
+                            </button>
+                          </div>
+                    </li>      
+                    <li><a href="/regist">المشتريات</a></li>
+                    <li><a href="/regist">تواصل معنا</a></li>
+
+                </ul>
+                {% endif %}
+                </div>
+
+            </div>
+        </nav>
+
+        <div class="shopping-cart">
+            <div class="sum-prices">
+                <div class="container">
+                    <!--Shopping cart logo-->
+
+                    <!--The total prices of products in the shopping cart -->
+
+                </div>
+            </div>
+        </div>
+
+        <div class="producstOnCart hide">
+            <div class="overlay_4"></div>
+            <div class="top">
+                <button id="closeButton">
+                    <i class="fas_2 fa fa-times-circle"></i>
+                </button>
+                <h3>عربة التسوق</h3>
+            </div>
+            <ul id="buyItems">
+
+                <h4 class="empty">عربة التسوق فارغة</h4>
+                <!-- <li class="buyItem">
+                                <img src="Images/producs-images/Mobiles/galaxynote10.png">
+                                <div>
+                                    <h5>Products Name</h5>
+                                    <h6>$199</h6>
+                                    <div>
+                                        <button>-</button>
+                                        <span class="countOfProduct">1</span>
+                                        <button>+</button>
+                                    </div>
+                                </div>
+                            </li> -->
+            </ul>
+            <h4 id="sum-prices"></h4>
+            <a href="{{ url_for('checkout') }}"><button class="btn checkout hidden">اتمام عملية الشراء</button></a>
+
+        </div>
+
+        {% block content %} {% endblock %}
+    </header>
+    <footer>
+
+        <div class="footer_bacg">
+            <div class="container">
+                <div class="footer_child">
+                    <div class="grid_2">
+                        <div class="write_about">
+                            <p>BOOK <span class="name">S</span>TATION</p>
+                            <p>
+                                <span class="dec">
+                                    اكبر متجر عربي في العراق، يحتوي على العديد من الكتب <br>العربية والانجليزية
+                                    بمختلف
+                                    الاقسام، كتابك لِبابك اينما كنت.
+                                </span>
+                            </p>
+                            <button class="buttom">اطلب كتاب</button>
+                        </div>
+
+                        <div class="about">
+                            <ul>
+                                <li><a href="#">اتصل بنا</a></li>
+                                <li><a href="#">طلباتي</a></li>
+                                <li><a href="#">لديك استفسار؟ اتصل على07808844404</a></li>
+                                <li><a href="#">تواصل معنا عبر المواقع:</a>
+                                    <i class="net fa fa-facebook-square fa-lg"></i>
+                                    <i class="net fa fa-instagram fa-lg"></i>
+
+                                </li>
+                                <li><a href="#">عن BOOK STATION</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </footer>
+
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="{{ url_for('static', filename='main.js') }}"></script>
+    {% block script %}
+    {% endblock %}
+</body>
+
+</html>

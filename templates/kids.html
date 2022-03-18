@@ -1,0 +1,68 @@
+{% extends "main.html" %}
+{% block content %}
+
+<div class="img_area_4">
+    <div class="img_free_3">
+        <div class="overlay_5">
+          
+            <div class="write_free_kids">
+                
+            <p>كتب للاطفال</p>
+
+            </div>
+            <div class="write_free_book">
+                <h3>  
+                     BOOK <span>S</span>TATION 
+                     <p>FOR KIDS</p>
+                </h3>
+            </div>
+        </div>
+    </div>
+</div>
+{% if books %}
+<div class=" container padd "> 
+    <div class="space">
+            {% for book in books %}
+    
+            
+                <ul>
+                    <!--1------------------------------------>
+                    <li class="item-a">
+                        <!--box-slider--------------->
+                        
+                        <div class="box_free">
+                            <!--img-box---------->
+                            
+                            <div class="slide-img">
+                                <img alt="1" src="{{ book['image_file'] }}">
+                                <!--overlayer---------->
+                                <div class="overlay_flask">
+                                    <!--buy-btn------>
+                                    <a href="#" class="buy-btn">Buy Now</a>
+                                </div>
+                            </div>
+                     
+                            <!--detail-box--------->
+                            <div class="detail-box" >
+                                <!--type-------->
+                                <div class="type">
+                                    <a href="#" >Rabbed Cardigan</a>
+                                    <span>Noe Arrival</span>
+                                </div>
+                                <!--price-------->
+                                <a href="#" class="price">$23</a>
+    
+                            </div>
+    
+                        </div>
+                  
+                    </li>
+                </ul>
+           
+            {% endfor %}
+        </div>
+            {% endif %}
+
+    <div class="clear"></div>
+    </div>
+    {% endblock content %}

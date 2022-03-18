@@ -1,0 +1,95 @@
+{% extends "main.html" %}
+{% block content %}
+
+<div class="card-items">
+   <ul>
+       
+   </ul>
+</div>
+
+
+{% endblock content %}
+{% block script %}
+<script>
+    let cart_chek = document.querySelector('.card-items ul')
+
+    let ceckk = JSON.parse(localStorage.getItem('ShoppingCart'));
+    if (productInCart.length > 0){
+        let result = productInCart.map(product => {
+          return `
+           <li class="buyItem">
+                <img src="${product.image}">
+                <div>
+                    <h5>${product.name}</h5>
+                    <h6>IQD${product.price}</h6>
+                    <div>
+                        <button class="button-minus" data-id=${product.id}>-</button>
+                        <span class="countOfProduct">${product.count}</span>
+                        <button class="button-plus" data-id=${product.id}>+</button>
+                    </div>
+                </div>
+            </li>`
+        });
+
+        
+
+        cart_chek.innerHTML = result.join('');
+        document.querySelector('.checkout').classList.remove('hidden')
+        cartSumPrice.innerHTML= "المجوع: " + "IQD" + countTheSumPrice();
+      } else{
+        document.querySelector('.checkout').classList.add('hidden')
+        cart_chek.innerHTML = '<h4 class="empty">عربة التسوق فارغة</h4>';
+        cartSumPrice.innerHTML="";
+      }
+
+      const updateShoppingCartHTML_2 = function(){
+        localStorage.setItem('ShoppingCart', JSON.stringify(productInCart))
+        if (productInCart.length > 0){
+          let result = productInCart.map(product => {
+            return `
+             <li class="buyItem">
+                  <img src="${product.image}">
+                  <div>
+                      <h5>${product.name}</h5>
+                      <h6>IQD${product.price}</h6>
+                      <div>
+                          <button class="button-minus" data-id=${product.id}>-</button>
+                          <span class="countOfProduct">${product.count}</span>
+                          <button class="button-plus" data-id=${product.id}>+</button>
+                      </div>
+                  </div>
+              </li>`
+          });
+          checkout = result
+          cart_chek.innerHTML = result.join('');
+          document.querySelector('.checkout').classList.remove('hidden')
+          cartSumPrice.innerHTML= "المجوع: " + "IQD" + countTheSumPrice();
+        } else{
+          document.querySelector('.checkout').classList.add('hidden')
+          cart_chek.innerHTML = '<h4 class="empty">عربة التسوق فارغة</h4>';
+          cartSumPrice.innerHTML="";
+        }
+      }
+      cart_chek.addEventListener('click', (e) =>{
+        const isPlusButton = e.target.classList.contains('button-plus');
+        const isMinusButton = e.target.classList.contains('button-minus');
+        if (isPlusButton || isMinusButton){
+          for (let i = 0; i < productInCart.length; i++){
+            if(productInCart[i].id === e.target.dataset.id){
+              if(isPlusButton){
+                productInCart[i].count += 1
+              }
+              else if(isMinusButton){
+                productInCart[i].count -= 1
+              }
+              productInCart[i].price = productInCart[i].basePrice * productInCart[i].count;
+            }
+            if(productInCart[i].count <= 0){
+              productInCart.splice(i, 1);
+            }
+          }
+          updateShoppingCartHTML_2();
+        }
+      });
+</script>
+{% endblock %}
