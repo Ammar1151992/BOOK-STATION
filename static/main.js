@@ -206,8 +206,8 @@ overlay.addEventListener('click', closeCart);
 
 var swiper = new Swiper(".mySwiper_flask", {
   
-  slidesPerView: 6,
-  spaceBetween: 4,
+  slidesPerView: 5,
+  spaceBetween: 10,
   pagination: {
     el: ".swiper-pagination",
     clickable: true

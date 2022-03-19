@@ -23,9 +23,14 @@ migrate = Migrate(app, db)
 
  
 @app.route("/")
-@app.route("/home")
+@app.route("/home", methods=['GET', 'POST'])
 def home():
-    return render_template("home.html", title='Home')
+    type_book = book.query.filter_by(type='novels').all()
+    if not type_book:
+        return redirect('/home')
+    # books = select(book).where(book.type=="?",type_book)
+    return render_template('home.html', title='Home', books=type_book)
+ 
 
 @app.before_first_request
 def create_db():

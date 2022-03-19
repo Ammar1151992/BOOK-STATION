@@ -15,6 +15,7 @@
     <link rel="icon" href="{{ url_for('static', filename='image/logo.png') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='flask.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='responsive.css') }}">
 
 
 
@@ -30,7 +31,7 @@
                     <div class="nav_right">
                         {% if current_user.is_authenticated %}
                         <ul class="right">
-                            <li class="bag"><i class="fas fa fa-shopping-bag fa-lg shoppingCartButton"></i><span
+                            <li class="bag"><i class=" fa fa-shopping-bag fa-lg shoppingCartButton"></i><span
                                     class="number0fcarts"></span></i></li>
                             <li class="sign_in"><a href="{{ url_for('logout') }}">تسجيل خروج</a></li>
                         </ul>
@@ -260,7 +261,7 @@
                                         <a href="#">الادب الاسلامي</a>
                                     </div>
 
-                                    <button class="dropdown-btn pddd">
+                                    <button class="dropdown-btn ">
                                         السير والمذكرات
                                         <i class="fa fa-caret-left"></i>
                                     </button>
