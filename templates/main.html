@@ -24,10 +24,13 @@
 <body>
  
     <header>
+        <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
         <!-- START NAVBAR -->
         <nav>
             <div class="container">
                 <div class="nav_parent">
+                   
+
                     <div class="nav_right">
                         {% if current_user.is_authenticated %}
                         <ul class="right">
@@ -43,16 +46,17 @@
                         {% endif %}
                     </div>
 
+
                     <div class="nav_center">
                         <div class="center">
 
-                            <div class="search_drop">
-                                <input type="text" class="input" placeholder="البحث">
+                            <form method="POST" action="{{ url_for('search') }}" class="search_drop">
+                                {{ form.hidden_tag() }}
+                                <input type="text" class="input" placeholder="البحث" name="searched">
                                 <i class="fas fa fa-search fa-lg"></i>
-                            </div>
+                            </form>
                         </div>
                     </div>
-
 
                     <div class="nav_left">
                         <ul class="left">
@@ -68,7 +72,6 @@
                 </div>
 
                 <div class="nav_content">
-                    {% if current_user.is_authenticated %}
                     <ul class="nav_content_main">
                         <li><a href="/home">الرئيسية</a></li>
 
@@ -80,17 +83,17 @@
                                     <i class="fa fa-caret-down"></i>
                                 </button>
                                 <div class="dropdown-container">
-                                    <a href="#">Architecture</a>
-                                    <a href="#">Antiques & Collectibles</a>
-                                    <a href="#">Art</a>
-                                    <a href="#">Graphic Novels and comics</a>
-                                    <a href="#">Juvenile Fiction</a>
-                                    <a href="#">Computers</a>
-                                    <a href="#">Self-Help</a>
-                                    <a href="#">Design</a>
-                                    <a href="#">Foreign Language Study</a>
-                                    <a href="#">Fiction</a>
-                                    <a href="#">Business & Economics</a>
+                                    <a href="{{ url_for('English_book', type='novels') }}">Architecture</a>
+                                    <a href="{{ url_for('Arabic_book', type='novels') }}">Antiques & Collectibles</a>
+                                    <a href="{{ url_for('Arabic_book', type='novels') }}">Art</a>
+                                    <a href="{{ url_for('Arabic_book', type='novels') }}">Graphic Novels and comics</a>
+                                    <a href="{{ url_for('Arabic_book', type='novels') }}">Juvenile Fiction</a>
+                                    <a href="{{ url_for('Arabic_book', type='novels') }}">Computers</a>
+                                    <a href="{{ url_for('Arabic_book', type='novels') }}">Self-Help</a>
+                                    <a href="{{ url_for('Arabic_book', type='novels') }}">Design</a>
+                                    <a href="{{ url_for('Arabic_book', type='novels') }}">Foreign Language Study</a>
+                                    <a href="{{ url_for('Arabic_book', type='novels') }}">Fiction</a>
+                                    <a href="{{ url_for('Arabic_book', type='novels') }}">Business & Economics</a>
                                 </div>
                               </div>
 
@@ -110,12 +113,12 @@
                                         <i class="fa fa-caret-left"></i>
                                     </button>
                                     <div class="dropdown-container_left">
-                                        <a href="{{ url_for('selected', type='novels') }}">الروايات</a>
-                                        <a href="#">القصص</a>
-                                        <a href="#">الاعمال الكاملة</a>
-                                        <a href="#">المسرحيات</a>
-                                        <a href="#">تأريخ الادب</a>
-                                        <a href="#">الادب الاسلامي</a>
+                                        <a href="{{ url_for('Arabic_book', type='novels') }}">الروايات</a>
+                                        <a href="{{ url_for('Arabic_book', type='novels') }}">القصص</a>
+                                        <a href="{{ url_for('Arabic_book', type='novels') }}">الاعمال الكاملة</a>
+                                        <a href="{{ url_for('Arabic_book', type='novels') }}">المسرحيات</a>
+                                        <a href="{{ url_for('Arabic_book', type='novels') }}">تأريخ الادب</a>
+                                        <a href="{{ url_for('Arabic_book', type='novels') }}">الادب الاسلامي</a>
                                     </div>
 
                                     <button class="dropdown-btn pddd">
@@ -123,12 +126,12 @@
                                         <i class="fa fa-caret-left"></i>
                                     </button>
                                     <div class="dropdown-container_left">
-                                        <a href="#">الروايات</a>
-                                        <a href="#">القصص</a>
-                                        <a href="#">الاعمال الكاملة</a>
-                                        <a href="#">المسرحيات</a>
-                                        <a href="#">تأريخ الادب</a>
-                                        <a href="#">الادب الاسلامي</a>
+                                        <a href="{{ url_for('Arabic_book', type='novels') }}">الروايات</a>
+                                        <a href="{{ url_for('Arabic_book', type='novels') }}">القصص</a>
+                                        <a href="{{ url_for('Arabic_book', type='novels') }}">الاعمال الكاملة</a>
+                                        <a href="{{ url_for('Arabic_book', type='novels') }}">المسرحيات</a>
+                                        <a href="{{ url_for('Arabic_book', type='novels') }}">تأريخ الادب</a>
+                                        <a href="{{ url_for('Arabic_book', type='novels') }}">الادب الاسلامي</a>
                                     </div>
 
                                     <button class="dropdown-btn pddd">
@@ -136,12 +139,12 @@
                                         <i class="fa fa-caret-left"></i>
                                     </button>
                                     <div class="dropdown-container_left">
-                                        <a href="#">الروايات</a>
-                                        <a href="#">القصص</a>
-                                        <a href="#">الاعمال الكاملة</a>
-                                        <a href="#">المسرحيات</a>
-                                        <a href="#">تأريخ الادب</a>
-                                        <a href="#">الادب الاسلامي</a>
+                                        <a href="{{ url_for('Arabic_book', type='novels') }}">الروايات</a>
+                                        <a href="{{ url_for('Arabic_book', type='novels') }}">القصص</a>
+                                        <a href="{{ url_for('Arabic_book', type='novels') }}">الاعمال الكاملة</a>
+                                        <a href="{{ url_for('Arabic_book', type='novels') }}">المسرحيات</a>
+                                        <a href="{{ url_for('Arabic_book', type='novels') }}">تأريخ الادب</a>
+                                        <a href="{{ url_for('Arabic_book', type='novels') }}">الادب الاسلامي</a>
                                     </div>
 
                                     <button class="dropdown-btn pddd">
@@ -149,12 +152,12 @@
                                         <i class="fa fa-caret-left"></i>
                                     </button>
                                     <div class="dropdown-container_left">
-                                        <a href="#">الروايات</a>
-                                        <a href="#">القصص</a>
-                                        <a href="#">الاعمال الكاملة</a>
-                                        <a href="#">المسرحيات</a>
-                                        <a href="#">تأريخ الادب</a>
-                                        <a href="#">الادب الاسلامي</a>
+                                        <a href="{{ url_for('Arabic_book', type='novels') }}">الروايات</a>
+                                        <a href="{{ url_for('Arabic_book', type='novels') }}">القصص</a>
+                                        <a href="{{ url_for('Arabic_book', type='novels') }}">الاعمال الكاملة</a>
+                                        <a href="{{ url_for('Arabic_book', type='novels') }}">المسرحيات</a>
+                                        <a href="{{ url_for('Arabic_book', type='novels') }}">تأريخ الادب</a>
+                                        <a href="{{ url_for('Arabic_book', type='novels') }}">الادب الاسلامي</a>
                                     </div>
 
                                     <button class="dropdown-btn pddd">
@@ -162,12 +165,12 @@
                                         <i class="fa fa-caret-left"></i>
                                     </button>
                                     <div class="dropdown-container_left">
-                                        <a href="#">الروايات</a>
-                                        <a href="#">القصص</a>
-                                        <a href="#">الاعمال الكاملة</a>
-                                        <a href="#">المسرحيات</a>
-                                        <a href="#">تأريخ الادب</a>
-                                        <a href="#">الادب الاسلامي</a>
+                                        <a href="{{ url_for('Arabic_book', type='novels') }}">الروايات</a>
+                                        <a href="{{ url_for('Arabic_book', type='novels') }}">القصص</a>
+                                        <a href="{{ url_for('Arabic_book', type='novels') }}">الاعمال الكاملة</a>
+                                        <a href="{{ url_for('Arabic_book', type='novels') }}">المسرحيات</a>
+                                        <a href="{{ url_for('Arabic_book', type='novels') }}">تأريخ الادب</a>
+                                        <a href="{{ url_for('Arabic_book', type='novels') }}">الادب الاسلامي</a>
                                     </div>
 
                                     <button class="dropdown-btn pddd">
@@ -175,12 +178,12 @@
                                         <i class="fa fa-caret-left"></i>
                                     </button>
                                     <div class="dropdown-container_left">
-                                        <a href="#">الروايات</a>
-                                        <a href="#">القصص</a>
-                                        <a href="#">الاعمال الكاملة</a>
-                                        <a href="#">المسرحيات</a>
-                                        <a href="#">تأريخ الادب</a>
-                                        <a href="#">الادب الاسلامي</a>
+                                        <a href="{{ url_for('Arabic_book', type='novels') }}">الروايات</a>
+                                        <a href="{{ url_for('Arabic_book', type='novels') }}">القصص</a>
+                                        <a href="{{ url_for('Arabic_book', type='novels') }}">الاعمال الكاملة</a>
+                                        <a href="{{ url_for('Arabic_book', type='novels') }}">المسرحيات</a>
+                                        <a href="{{ url_for('Arabic_book', type='novels') }}">تأريخ الادب</a>
+                                        <a href="{{ url_for('Arabic_book', type='novels') }}">الادب الاسلامي</a>
                                     </div>
 
                                     <button class="dropdown-btn pddd">
@@ -188,12 +191,12 @@
                                         <i class="fa fa-caret-left"></i>
                                     </button>
                                     <div class="dropdown-container_left">
-                                        <a href="#">الروايات</a>
-                                        <a href="#">القصص</a>
-                                        <a href="#">الاعمال الكاملة</a>
-                                        <a href="#">المسرحيات</a>
-                                        <a href="#">تأريخ الادب</a>
-                                        <a href="#">الادب الاسلامي</a>
+                                        <a href="{{ url_for('Arabic_book', type='novels') }}">الروايات</a>
+                                        <a href="{{ url_for('Arabic_book', type='novels') }}">القصص</a>
+                                        <a href="{{ url_for('Arabic_book', type='novels') }}">الاعمال الكاملة</a>
+                                        <a href="{{ url_for('Arabic_book', type='novels') }}">المسرحيات</a>
+                                        <a href="{{ url_for('Arabic_book', type='novels') }}">تأريخ الادب</a>
+                                        <a href="{{ url_for('Arabic_book', type='novels') }}">الادب الاسلامي</a>
                                     </div>
 
                                     <button class="dropdown-btn pddd">
@@ -201,12 +204,12 @@
                                         <i class="fa fa-caret-left"></i>
                                     </button>
                                     <div class="dropdown-container_left">
-                                        <a href="#">الروايات</a>
-                                        <a href="#">القصص</a>
-                                        <a href="#">الاعمال الكاملة</a>
-                                        <a href="#">المسرحيات</a>
-                                        <a href="#">تأريخ الادب</a>
-                                        <a href="#">الادب الاسلامي</a>
+                                        <a href="{{ url_for('Arabic_book', type='novels') }}">الروايات</a>
+                                        <a href="{{ url_for('Arabic_book', type='novels') }}">القصص</a>
+                                        <a href="{{ url_for('Arabic_book', type='novels') }}">الاعمال الكاملة</a>
+                                        <a href="{{ url_for('Arabic_book', type='novels') }}">المسرحيات</a>
+                                        <a href="{{ url_for('Arabic_book', type='novels') }}">تأريخ الادب</a>
+                                        <a href="{{ url_for('Arabic_book', type='novels') }}">الادب الاسلامي</a>
                                     </div>
 
                                     <button class="dropdown-btn pddd">
@@ -214,12 +217,12 @@
                                         <i class="fa fa-caret-left"></i>
                                     </button>
                                     <div class="dropdown-container_left">
-                                        <a href="#">الروايات</a>
-                                        <a href="#">القصص</a>
-                                        <a href="#">الاعمال الكاملة</a>
-                                        <a href="#">المسرحيات</a>
-                                        <a href="#">تأريخ الادب</a>
-                                        <a href="#">الادب الاسلامي</a>
+                                        <a href="{{ url_for('Arabic_book', type='novels') }}">الروايات</a>
+                                        <a href="{{ url_for('Arabic_book', type='novels') }}">القصص</a>
+                                        <a href="{{ url_for('Arabic_book', type='novels') }}">الاعمال الكاملة</a>
+                                        <a href="{{ url_for('Arabic_book', type='novels') }}">المسرحيات</a>
+                                        <a href="{{ url_for('Arabic_book', type='novels') }}">تأريخ الادب</a>
+                                        <a href="{{ url_for('Arabic_book', type='novels') }}">الادب الاسلامي</a>
                                     </div>
 
                                     <button class="dropdown-btn pddd">
@@ -227,12 +230,12 @@
                                         <i class="fa fa-caret-left"></i>
                                     </button>
                                     <div class="dropdown-container_left">
-                                        <a href="#">الروايات</a>
-                                        <a href="#">القصص</a>
-                                        <a href="#">الاعمال الكاملة</a>
-                                        <a href="#">المسرحيات</a>
-                                        <a href="#">تأريخ الادب</a>
-                                        <a href="#">الادب الاسلامي</a>
+                                        <a href="{{ url_for('Arabic_book', type='novels') }}">الروايات</a>
+                                        <a href="{{ url_for('Arabic_book', type='novels') }}">القصص</a>
+                                        <a href="{{ url_for('Arabic_book', type='novels') }}">الاعمال الكاملة</a>
+                                        <a href="{{ url_for('Arabic_book', type='novels') }}">المسرحيات</a>
+                                        <a href="{{ url_for('Arabic_book', type='novels') }}">تأريخ الادب</a>
+                                        <a href="{{ url_for('Arabic_book', type='novels') }}">الادب الاسلامي</a>
                                     </div>
 
                                     <button class="dropdown-btn pddd">
@@ -240,12 +243,12 @@
                                         <i class="fa fa-caret-left"></i>
                                     </button>
                                     <div class="dropdown-container_left">
-                                        <a href="#">الروايات</a>
-                                        <a href="#">القصص</a>
-                                        <a href="#">الاعمال الكاملة</a>
-                                        <a href="#">المسرحيات</a>
-                                        <a href="#">تأريخ الادب</a>
-                                        <a href="#">الادب الاسلامي</a>
+                                        <a href="{{ url_for('Arabic_book', type='novels') }}">الروايات</a>
+                                        <a href="{{ url_for('Arabic_book', type='novels') }}">القصص</a>
+                                        <a href="{{ url_for('Arabic_book', type='novels') }}">الاعمال الكاملة</a>
+                                        <a href="{{ url_for('Arabic_book', type='novels') }}">المسرحيات</a>
+                                        <a href="{{ url_for('Arabic_book', type='novels') }}">تأريخ الادب</a>
+                                        <a href="{{ url_for('Arabic_book', type='novels') }}">الادب الاسلامي</a>
                                     </div>
 
                                     <button class="dropdown-btn pddd">
@@ -253,12 +256,12 @@
                                         <i class="fa fa-caret-left"></i>
                                     </button>
                                     <div class="dropdown-container_left">
-                                        <a href="#">الروايات</a>
-                                        <a href="#">القصص</a>
-                                        <a href="#">الاعمال الكاملة</a>
-                                        <a href="#">المسرحيات</a>
-                                        <a href="#">تأريخ الادب</a>
-                                        <a href="#">الادب الاسلامي</a>
+                                        <a href="{{ url_for('Arabic_book', type='novels') }}">الروايات</a>
+                                        <a href="{{ url_for('Arabic_book', type='novels') }}">القصص</a>
+                                        <a href="{{ url_for('Arabic_book', type='novels') }}">الاعمال الكاملة</a>
+                                        <a href="{{ url_for('Arabic_book', type='novels') }}">المسرحيات</a>
+                                        <a href="{{ url_for('Arabic_book', type='novels') }}">تأريخ الادب</a>
+                                        <a href="{{ url_for('Arabic_book', type='novels') }}">الادب الاسلامي</a>
                                     </div>
 
                                     <button class="dropdown-btn ">
@@ -266,50 +269,19 @@
                                         <i class="fa fa-caret-left"></i>
                                     </button>
                                     <div class="dropdown-container_left">
-                                        <a href="#">الروايات</a>
-                                        <a href="#">القصص</a>
-                                        <a href="#">الاعمال الكاملة</a>
-                                        <a href="#">المسرحيات</a>
-                                        <a href="#">تأريخ الادب</a>
-                                        <a href="#">الادب الاسلامي</a>
+                                        <a href="{{ url_for('Arabic_book', type='novels') }}">الروايات</a>
+                                        <a href="{{ url_for('Arabic_book', type='novels') }}">القصص</a>
+                                        <a href="{{ url_for('Arabic_book', type='novels') }}">الاعمال الكاملة</a>
+                                        <a href="{{ url_for('Arabic_book', type='novels') }}">المسرحيات</a>
+                                        <a href="{{ url_for('Arabic_book', type='novels') }}">تأريخ الادب</a>
+                                        <a href="{{ url_for('Arabic_book', type='novels') }}">الادب الاسلامي</a>
                                     </div>
                                 </div>
                               </div>
                         </li>      
-                        <li><a href="preorder.html">المشتريات</a></li>
-                        <li><a href="about.html">تواصل معنا</a></li>
+                        <li><a href="#footer">تواصل معنا</a></li>
 
                     </ul>
-                  {% else %}
-                  <ul class="nav_content_main">
-                    <li><a href="/regist">الرئيسية</a></li>
-
-                    <li class="">
-
-                        <div class="sidenav">
-                            <button class="dropdown-btn">
-                               <a href="/regist">الكتب الانجيلزية</a> 
-                                <i class="fa fa-caret-down"></i>
-                            </button>
-                          </div>
-
-
-                    </li>
-
-                    <li class="">
-
-                        <div class="sidenav">
-                            <button class="dropdown-btn" src="/regist">
-                                <a href="/regist">الكتب العربية</a> 
-                                <i class="fa fa-caret-down"></i>
-                            </button>
-                          </div>
-                    </li>      
-                    <li><a href="/regist">المشتريات</a></li>
-                    <li><a href="/regist">تواصل معنا</a></li>
-
-                </ul>
-                {% endif %}
                 </div>
 
             </div>
@@ -351,54 +323,18 @@
                             </li> -->
             </ul>
             <h4 id="sum-prices"></h4>
-            <a href="{{ url_for('checkout') }}"><button class="btn checkout hidden">اتمام عملية الشراء</button></a>
+            <a href="{{ url_for('checkout') }}"><button class="btn checkout hidden">عرض الكل</button></a>
 
         </div>
 
         {% block content %} {% endblock %}
     </header>
-    <footer>
-
-        <div class="footer_bacg">
-            <div class="container">
-                <div class="footer_child">
-                    <div class="grid_2">
-                        <div class="write_about">
-                            <p>BOOK <span class="name">S</span>TATION</p>
-                            <p>
-                                <span class="dec">
-                                    اكبر متجر عربي في العراق، يحتوي على العديد من الكتب <br>العربية والانجليزية
-                                    بمختلف
-                                    الاقسام، كتابك لِبابك اينما كنت.
-                                </span>
-                            </p>
-                            <button class="buttom">اطلب كتاب</button>
-                        </div>
-
-                        <div class="about">
-                            <ul>
-                                <li><a href="#">اتصل بنا</a></li>
-                                <li><a href="#">طلباتي</a></li>
-                                <li><a href="#">لديك استفسار؟ اتصل على07808844404</a></li>
-                                <li><a href="#">تواصل معنا عبر المواقع:</a>
-                                    <i class="net fa fa-facebook-square fa-lg"></i>
-                                    <i class="net fa fa-instagram fa-lg"></i>
-
-                                </li>
-                                <li><a href="#">عن BOOK STATION</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-    </footer>
+    
 
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script src="{{ url_for('static', filename='main.js') }}"></script>
     {% block script %}
     {% endblock %}
 </body>
-
+{% include "footer.html" %}
 </html>

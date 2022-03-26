@@ -17,6 +17,13 @@
 		float: left;
       }
 
+	  .mySwiper_home {
+        width: 100%;
+        height: 400px;
+		float: left;
+      }
+
+
 
 
       .slider_flask {
@@ -39,7 +46,7 @@
 		object-fit: cover;
 		align-items: center;
 		width: 200px;
-		margin: 0;
+		
       }
 
      
@@ -147,25 +154,27 @@
 		justify-content: center;
 		align-items: center;
 		margin: 0;
+
 	}
 
 
 	.scroll-gb{
-		width: 76%;
-		background-color: #E5E5E5;
-		float: left;
-		margin-top: 100px;
-		border-radius: 10px;
+		width: 100%;
+		margin-bottom: 100px;
+	}
+
+	.scroll-gb_2{
+		width: 100%;
+		margin-top: 50px;
+		margin-bottom: 100px;
 	}
 
 	.scroll-div{
 		margin: auto;
 		width:100%;
-		height: 90vh;
-		overflow: hidden;
-		overflow-y: scroll;
+		height: 100%;
 		display: grid;
-		grid-template-columns: repeat(4, 1fr);
+		grid-template-columns: repeat(5, 1fr);
 	}
 
 	.scroll-div ul{
@@ -243,7 +252,41 @@
 		margin-bottom: 50px;
 		
 	}
+
+	.img_area_5 .img_free{
+		background-image: url(../static/image/descount.jpg);
+		position: relative;
+		background-position: center;
+		background-size: cover;
+		height: 30vh;
+		object-fit: cover;
+		margin-bottom: 50px;
+		
+	}
+
 	
+	.img_area_6 .img_free{
+		background-image: url(../static/image/school.jpg);
+		position: relative;
+		background-position: center;
+		background-size: cover;
+		height: 30vh;
+		object-fit: cover;
+		margin-bottom: 50px;
+		
+	}
+
+	
+	.img_area_7 .img_free{
+		background-image: url(../static/image/busness.jpg);
+		position: relative;
+		background-position: center;
+		background-size: cover;
+		height: 30vh;
+		object-fit: cover;
+		margin-bottom: 50px;
+		
+	}
 	.overlay_5{
 		position: absolute;
 		background-color: rgb(0, 0, 0,0.5);
@@ -255,10 +298,11 @@
 		outline-offset: -4px;
 	}
 
+  
 	.write_free{
 		position: absolute;
-		font-size: 50px;
-		width: 37%;
+		font-size: 30px;
+		width: 35%;
 		text-align: right;
 		color:#E5E5E5;
 		top: 50%;
@@ -270,8 +314,8 @@
 
 	.write_free_book{
 		position: absolute;
-		font-size: 50px;
-		width: 35%;
+		font-size: 40px;
+		width: 32%;
 		text-align: left;
 		color:#E5E5E5;
 		top: 50%;
@@ -308,7 +352,7 @@
 	}
 
 	.img_area_3 .img_free_2{
-		background-image: url(../static/image/dec2.jpg);
+		background-image: url(../static/image/layout.jpg);
 		position: relative;
 		background-position: center;
 		background-size: cover;
@@ -350,7 +394,7 @@
 }
 
 .swiper-pagination-bullet {
-    background-color: #8B3B00;
+    background-color: #E5E5E5;
 	width: 15px;
 	height: 2px;
 	border-radius: 0;
@@ -363,3 +407,279 @@
 
 }
 
+.sidebar {
+	height: 100%; /* 100% Full-height */
+	width: 0; /* 0 width - change this with JavaScript */
+	position: fixed; /* Stay in place */
+	z-index: 1; /* Stay on top */
+	top: 0;
+	right: 0;
+	background-color: #111; /* Black*/
+	overflow-x: hidden; /* Disable horizontal scroll */
+	padding-top: 60px; /* Place content 60px from the top */
+	transition: 0.5s; /* 0.5 second transition effect to slide in the sidebar */
+  }
+  
+  /* The sidebar links */
+  .sidebar a {
+	padding: 8px 8px 8px 8px;
+	text-decoration: none;
+	font-size: 16px;
+	color: #818181;
+	display: block;
+	transition: 0.3s;
+  }
+  
+  /* When you mouse over the navigation links, change their color */
+  .sidebar a:hover {
+	color: #f1f1f1;
+  }
+  
+  /* Position and style the close button (top right corner) */
+  .sidebar .closebtn {
+	position: absolute;
+	top: 0;
+	right: 25px;
+	font-size: 36px;
+	margin-left: 50px;
+  }
+  
+  /* The button used to open the sidebar */
+  .openbtn {
+	font-size: 16px;
+	cursor: pointer;
+	background-color: #8B3B00;
+	color: white;
+	padding: 10px 15px;
+	border: none;
+  }
+  
+  .openbtn:hover {
+	background-color: #444;
+  }
+  
+  /* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+  #main {
+	transition: margin-left .5s; /* If you want a transition effect */
+	padding: 20px;
+  }
+  
+  /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+ .notfound{
+	 margin-bottom: 302px;
+ }
+ .checkout_content{
+	 margin-top: 50px;
+	 margin-bottom: 200px;
+ }
+ .check_ul li{
+	margin: auto;
+	width: 70%;
+	height: 30%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+   }
+   .image-box{
+	width: 15%;
+	text-align: center;
+   }
+   .about{
+	height: 100%;
+   }
+   .title{
+	padding-top: 5px;
+	line-height: 10px;
+	font-size: 32px;
+	font-weight: 800;
+	color: #202020;
+   }
+   .subtitle{
+	line-height: 10px;
+	font-size: 18px;
+	font-weight: 600;
+	color: #909090;
+   }
+
+   .check_ul .counter{
+	width: 10%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+   }
+   .check_ul button{
+	width: 15px;
+	height: 15px;
+	border-radius: 50%;
+	background-color: #d9d9d9;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 15px;
+	font-weight: 900;
+	color: #202020;
+	cursor: pointer;
+	color: #222222;
+   }
+
+
+   .check_ul li .prices{
+	height: 100%;
+	text-align: right;
+   }
+   .check_ul li h6{
+	padding-top: 20px;
+	font-size: 20px;
+	font-weight: 800;
+	color: #202020;
+   }
+  
+   .check_ul li .remove{
+	padding-top: 5px;
+	font-size: 14px;
+	font-weight: 600;
+	color: #E44C4C;
+	cursor: pointer;
+   }
+
+   hr{
+	width: 60%;
+	margin-right: 1.5%;
+	margin-top: 60px;
+   }
+   .checkout{
+	float: right;
+	margin-right: 5%;
+	width: 28%;
+	background-color: #222222;
+	background: #222222;
+   }
+
+   .total_price #sum-prices{
+	   background: none;
+	   display: flex;
+	   justify-content: space-between;
+	   float: left;
+	   margin-left: 200px;
+	   font-size: 25px;
+   }
+
+ 
+ 
+ 
+   
+
+
+
+
+
+
+   .row {
+	display: -ms-flexbox; /* IE10 */
+	display: flex;
+	-ms-flex-wrap: wrap; /* IE10 */
+	flex-wrap: wrap;
+	margin: 0 -16px;
+  }
+  
+  .col-25 {
+	-ms-flex: 25%; /* IE10 */
+	flex: 25%;
+  }
+  
+  .col-50 {
+	-ms-flex: 50%; /* IE10 */
+	flex: 50%;
+  }
+  
+  .col-75 {
+	-ms-flex: 75%; /* IE10 */
+	flex: 75%;
+  }
+  
+  .col-25,
+  .col-50,
+  .col-75 {
+	padding: 0 16px;
+  }
+  
+  
+  
+  input[type=text] {
+	width: 100%;
+	margin-bottom: 20px;
+	padding: 12px;
+	border: 1px solid #ccc;
+	border-radius: 3px;
+  }
+  
+  label {
+	margin-bottom: 10px;
+	display: block;
+  }
+  
+  .icon-container {
+	margin-bottom: 20px;
+	padding: 7px 0;
+	font-size: 24px;
+  }
+  
+  .btn {
+	background-color: #222222;
+	color: white;
+	padding: 12px;
+	margin: 10px 0;
+	border: none;
+	width: 100%;
+	border-radius: 3px;
+	cursor: pointer;
+	font-size: 17px;
+  }
+  
+  .btn:hover {
+	background-color: #8B3B00;
+  }
+  
+  span.price {
+	float: right;
+	color: grey;
+  }
+  
+  /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other (and change the direction - make the "cart" column go on top) */
+  @media (max-width: 800px) {
+	.row {
+	  flex-direction: column-reverse;
+	}
+	.col-25 {
+	  margin-bottom: 20px;
+	}
+  }
+
+  .container_3 {
+	background-color: #f2f2f2;
+	padding: 5px 20px 15px 20px;
+	border: 1px solid lightgrey;
+	border-radius: 3px;
+  }
+
+
+
+  #myBtn {
+	display: none; /* Hidden by default */
+	position: fixed; /* Fixed/sticky position */
+	bottom: 20px; /* Place the button at the bottom of the page */
+	right: 30px; /* Place the button 30px from the right */
+	z-index: 99; /* Make sure it does not overlap */
+	border: none; /* Remove borders */
+	outline: none; /* Remove outline */
+	background-color: #111; /* Set a background color */
+	color: white; /* Text color */
+	cursor: pointer; /* Add a mouse pointer on hover */
+	padding: 15px; /* Some padding */
+	border-radius: 10px; /* Rounded corners */
+	font-size: 18px; /* Increase font size */
+  }
+  
+  #myBtn:hover {
+	background-color: #555; /* Add a dark-grey background on hover */
+  }

@@ -1,70 +1,81 @@
-{% extends "main.html" %}
-{% block content %}
 
-<div class="img_area">
-    <div class="img_free_1">
-        <div class="overlay_5">
-          
-            <div class="write_free">
-                
-            <p>اخر اصدارات الكتب وصلت حديثاً</p>
 
-            </div>
-            <div class="write_free_book">
-                <h3>  
-                     BOOK <span>S</span>TATION 
-                     <p>OFFERS</p>
-                </h3>
-            </div>
-        </div>
-    </div>
-</div>
-{% if books %}
-<div class=" container padd "> 
-    <div class="space">
-            {% for book in books %}
-    
+            {% extends "main.html" %}
+            {% block content %}
             
-                <ul>
-                    <!--1------------------------------------>
-                    <li class="item-a">
-                        <!--box-slider--------------->
-                        
-                        <div class="box_free">
-                            <!--img-box---------->
+            <div class="img_area">
+                <div class="img_free_1">
+                    <div class="overlay_5">
+                        <div class="content_free">
+                        <div class="write_free">
                             
-                            <div class="slide-img">
-                                <img alt="1" src="{{ book['image_file'] }}">
-                                <!--overlayer---------->
-                                <div class="overlay_flask">
-                                    <!--buy-btn------>
-                                    <a href="#" class="buy-btn">Buy Now</a>
-                                </div>
-                            </div>
-                     
-                            <!--detail-box--------->
-                            <div class="detail-box" >
-                                <!--type-------->
-                                <div class="type">
-                                    <a href="#">Rabbed Cardigan</a>
-                                    <span>Noe Arrival</span>
-                                </div>
-                                <!--price-------->
-                                <a href="#" class="price">$23</a>
-    
-                            </div>
-    
+                        <p>اخر اصدارات الكتب وصلت حديثاً</p>
+            
                         </div>
-                  
-                    </li>
-                </ul>
-           
-            {% endfor %}
-        </div>
-            {% endif %}
-
-    <div class="clear"></div>
-    </div>
-
-
-{% endblock content %}
+                        <div class="write_free_book">
+                            <h3>  
+                                 BOOK <span>S</span>TATION 
+                                 <p>OFFERS</p>
+                            </h3>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+            {% if books %}
+            <div class="container">
+                <div class="scroll-gb_2">
+                    <div class="scroll-div">
+                        {% for book in books %}
+            
+                        <ul>
+                            <!--1------------------------------------>
+                            <li class="item-a">
+                                <!--box-slider--------------->
+            
+                                <div class="box">
+                                    <!--img-box---------->
+                                    <div class="box">
+                                    <div class="slide-img">
+                                        <img alt="1" src="{{ book['image_file'] }}">
+                                        <!--overlayer---------->
+                                        <div class="overlay_flask">
+                                            <!--buy-btn------>
+                                            <div class="buy-btn addCart" data-product-id="{{ book['id'] }}">اضف الى العربة</div>
+                                        </div>
+                                    </div>
+            
+                                    <!--detail-box--------->
+                                    <div class="detail-box">
+                                        <!--type-------->
+                                        <div class="type">
+                                            <a href="{{ url_for('vew_product', id=book.id) }}" class="productName">{{
+                                                book['name_of_book'] }}</a>
+                                            <a href="{{ url_for('vew_product', id=book.id) }}"><span>عرض</span></a>
+                                        </div>
+                                        <!--price-------->
+                                        <a href="{{ url_for('vew_product', id=book.id) }}" class="priceValue">{{ book['price']
+                                            }}</a>
+                                        </div>
+                                    </div>
+            
+                                </div>
+            
+                            </li>
+                        </ul>
+            
+                        {% endfor %}
+            
+                    </div>
+            
+                </div>
+                <div class="clear"></div>
+            
+            </div>
+                        {% endif %}
+            
+                <div class="clear"></div>
+                </div>
+            
+            
+            {% endblock content %}

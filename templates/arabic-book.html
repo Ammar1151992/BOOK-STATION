@@ -1,28 +1,14 @@
+
 {% extends "main.html" %}
+
 {% block content %}
 
-<div class="img_area_2">
-    <div class="img_free">
-        <div class="overlay_5">
-            <div class="content_free">
-            <div class="write_free">
-                
-            <p>احصل على كتاب مجاناً عند شراء كتابين من نفس الصفحة</p>
-
-            </div>
-            <div class="write_free_book">
-                <h3>  
-                     BOOK <span>S</span>TATION 
-                     <p>OFFERS</p>
-                </h3>
-            </div>
-        </div>
-        </div>
-    </div>
-</div>
 {% if books %}
-<div class="container">
-    <div class="scroll-gb_2">
+
+
+{% include "arabic_side.html" %}
+<div class=" container ">
+    <div class="scroll-gb">
         <div class="scroll-div">
             {% for book in books %}
 
@@ -70,10 +56,8 @@
     <div class="clear"></div>
 
 </div>
-            {% endif %}
 
-    <div class="clear"></div>
-    </div>
-
-
+{% else %}
+<h1>djnbvckdbvkhdjsvcjkd</h1>
+{% endif %}
 {% endblock content %}

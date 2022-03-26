@@ -9,6 +9,7 @@ from wtforms.validators import DataRequired, Length, Email, EqualTo, ValidationE
 from flask_login import UserMixin, login_user, logout_user
 from datetime import datetime
 
+
 app = Flask(__name__)
 app.config['SECRET_KEY'] = '8699cbd6a17b478370a6f05d29ec1d25'
 # app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///bookdatabase.db'
@@ -20,6 +21,11 @@ login_manager = LoginManager(app)
 migrate = Migrate(app, db)
 
 
+# @app.route('/card/<int:id>',methods = ['POST', 'GET'])
+# def post(id):
+#    if request.method == 'POST':
+#       result = request.json
+#       user_name = user.query.filter_by(email=form.email.data).first()
 
  
 @app.route("/")
@@ -43,6 +49,13 @@ def cart():
     return render_template("cart.html", title='cart')
 
 
+@app.route("/buy")
+def buy():
+    return render_template("buy.html", title='Buy')
+
+
+
+
 
 @app.route("/login", methods=['GET','POST'])
 def login():
@@ -58,7 +71,26 @@ def login():
         else:
             flash('يرجى التحقق من الايميل او الرقم السري', 'error')
     return render_template('login.html', title='Login', form=form)
-     
+ 
+ 
+@app.context_processor
+def base():
+    form = SearchForm()
+    return dict(form = form )
+
+ 
+@app.route('/search', methods=['POST'])
+def search():
+    form = SearchForm()
+    posts = book.query
+    if form.validate_on_submit():
+        books = form.searched.data
+        posts = posts.filter(book.name_of_book.like('%' + books + '%')) 
+        posts = posts.filter_by().first()  
+        return render_template("search.html",
+        form = form,
+        searched = books,
+        posts = posts) 
 
 @app.route("/regist", methods=['GET','POST'])
 def regist():
@@ -80,22 +112,27 @@ def logout():
     return redirect(url_for('home'))
 
 
-@app.route("/english_book")
-def english_book():
-    return render_template('english_book.html', title='english_book')
+@app.route("/English_book/<string:type>", methods=['GET'])
+def English_book(type):
+    if not current_user.is_authenticated:
+        return redirect(url_for('regist'))
+    type_book = book.query.filter_by(type=type).all()
+    if not type_book:
+        return redirect('/home')
+    return render_template('english_book.html', title='english_book', books=type_book)
 
 
 
 
-@app.route("/selected/<string:type>", methods=['GET'])
-def selected(type):
+@app.route("/Arabic_book/<string:type>", methods=['GET'])
+def Arabic_book(type):
     if not current_user.is_authenticated:
         return redirect(url_for('regist'))
     type_book = book.query.filter_by(type=type).all()
     if not type_book:
         return redirect('/home')
     # books = select(book).where(book.type=="?",type_book)
-    return render_template('selected.html', title='selected', books=type_book)
+    return render_template('arabic-book.html', title='Arabic-book', books=type_book)
 
 
 @app.route("/vew_product/<int:id>", methods=['GET'])
@@ -157,6 +194,38 @@ def kids(type):
     return render_template("kids.html", title='kids', books=type_book)
 
 
+@app.route("/discount/<string:type>")
+def discount(type):
+    if not current_user.is_authenticated:
+        return redirect(url_for('regist'))
+    type_book = book.query.filter_by(type=type).all()
+    if not type_book:
+        return redirect('/home')
+    # books = select(book).where(book.type=="?",type_book)
+    return render_template("discount.html", title='discount', books=type_book)
+
+
+
+@app.route("/school/<string:type>")
+def school(type):
+    if not current_user.is_authenticated:
+        return redirect(url_for('regist'))
+    type_book = book.query.filter_by(type=type).all()
+    if not type_book:
+        return redirect('/home')
+    # books = select(book).where(book.type=="?",type_book)
+    return render_template("school.html", title='school', books=type_book)
+
+
+@app.route("/business/<string:type>")
+def business(type):
+    if not current_user.is_authenticated:
+        return redirect(url_for('regist'))
+    type_book = book.query.filter_by(type=type).all()
+    if not type_book:
+        return redirect('/home')
+    # books = select(book).where(book.type=="?",type_book)
+    return render_template("business.html", title='business', books=type_book)
 
 
 
@@ -171,6 +240,12 @@ def checkout():
     #     flash(f'{form.firstname.data}  تم انشاء الحساب بنجاح، من فضلك قم بتسجيل حسابك الان' , 'success')
     #     return redirect(url_for('login'))
     return render_template('checkout.html', title='checkout')
+
+
+
+
+
+
 
 class RegistrationForm(FlaskForm):
     firstname = StringField('الاسم الاول', validators=[DataRequired(), Length(min=2, max=10)], render_kw={"placeholder": "الاسم الاول"})
@@ -207,8 +282,9 @@ class UpdateAccountForm(FlaskForm):
             if user_name:
                 raise ValidationError('هذا الحساب مسجل سابقا، يرجى تسجيل حساب اخر')
 
-
-
+class SearchForm(FlaskForm):
+    searched = StringField("Searched", validators=[DataRequired()])
+    submit =SubmitField('بحث')
 
 
 

@@ -88,7 +88,7 @@ nav .nav_parent{
 
 
 .bacg_nav{
-    background-color: #222222;
+    background-color: #11101d;
     height: 12vh;
 
 
@@ -386,13 +386,13 @@ img{
   /* Dropdown container (hidden by default). Optional: add a lighter background color and some left padding to change the design of the dropdown content */
   .dropdown-container {
     display: none;
-    background-color: #fff;
+    background-color: #11101d;
     z-index: 10;
     position: absolute;
-    width: 300px;
+    width: 250px;
     padding: 20px;
-    margin-top: 30px;
-
+    margin-top: 25px;
+  
   }
 
 
@@ -403,13 +403,13 @@ img{
 
   .dropdown-container_left{
     display: none;
-    background-color: #fff;
+    background-color: #11101d;
     z-index: 10;
     position: absolute;
-    width: 300px;
+    width: 250px;
     padding: 20px;
     margin-top: 30px;
-    right: 305px;
+    right: 200px;
     top: 2px;
   }
 
@@ -598,7 +598,7 @@ img{
 }
 
 .swiper-pagination-bullet{
-   background-color: #8B3B00;
+    background-color: #E5E5E5;
 }
 
 
@@ -841,9 +841,9 @@ hr{
 /*--------------------------------------------------------Start Footer------------------------------------------------------------- */
 .footer_bacg{
     position: relative;
-    background-color: #222222;
+    background-color: #11101d;
     width: 100%;
-    height: 32vh;
+    height: 34vh;
 }
 
 .footer_child{
@@ -1314,7 +1314,6 @@ label {
 
 #sum-prices {
     padding-left: 5px;
-    background: #8B3B00;
     margin-top: 10px;
 }
 
@@ -1338,17 +1337,18 @@ label {
     overflow-y: scroll;
     scroll-behavior: smooth;
     overscroll-behavior: contain;
-    background-color: #222222;
+    background-color: #11101d;
     width: 300px;
     height: 500px;
     color: #f0f0f0;
-    z-index: 15;
+    z-index:150;
     position: fixed;
     top: 20px;
     right: 10px;
     text-align: center;
     animation: fade 1s;
 }
+
 
 .producstOnCart::-webkit-scrollbar {
     display: none;
@@ -1409,7 +1409,7 @@ label {
     background: transparent;
     border: none;
     font-size: 1.5rem;
-    margin-left: 10px;
+    margin-right: 10px;
     color: #8B3B00;
     cursor: pointer;
 }
@@ -1436,6 +1436,11 @@ label {
     cursor: pointer;
 }
 
+..closeButton{
+    margin-right: 15px;
+    align-items: center;
+    justify-content: center;
+}
 
 
 .stopScrolling {
@@ -1481,7 +1486,6 @@ label {
 
 /* Buttons style */
 .btn {
-    background-color: #96c8cc;
     padding: 15px 50px 15px 30px;
     color: #141414;
     font-weight: bold;
@@ -1565,4 +1569,181 @@ label {
   .pagination a:hover:not(.active) {background-color: #ddd;}
   
 /*---------------------------------------------------END CART---------------------------------------------------------- */
+.container_2{
+    margin-left: auto;
+    margin-right: 250px;
+    width: 77%;
+    
+}
+
+/* Google Fonts Import Link */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.sidebar{
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 250px;
+  background: #11101d;
+  z-index: 100;
+  transition: all 0.5s ease;
+}
+.sidebar.close{
+  width: 300px;
+}
+
+.sidebar .nav-links{
+  height: 100%;
+  padding: 30px 0 100px 0;
+  margin-left: 10px;
+  overflow: auto;
+}
+.sidebar.close .nav-links{
+  overflow: visible;
+}
+.sidebar .nav-links::-webkit-scrollbar{
+  display: none;
+}
+.sidebar .nav-links li{
+  position: relative;
+  list-style: none;
+  transition: all 0.4s ease;
+}
+.sidebar .nav-links li:hover{
+  background: #1d1b31;
+}
+.sidebar .nav-links li .iocn-link{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+.sidebar.close .nav-links li .iocn-link{
+  display: block
+}
+.sidebar .nav-links li i{
+  height:22px;
+  min-width: 30px;
+  text-align: center;
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.sidebar .nav-links li.showMenu i.arrow{
+  transform: rotate(-90deg);
+}
+.sidebar.close .nav-links i.arrow{
+  display: none;
+}
+.sidebar .nav-links li a{
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+.sidebar .nav-links li a .link_name{
+  font-size: 15px;
+  font-weight: 400;
+  color: #fff;
+  flex: 1;
+  transition: all 0.4s ease;
+}
+
+.sidebar .nav-links li .sub-menu{
+  padding: 6px 6px 14px 80px;
+  margin-top: -10px;
+  background: #1d1b31;
+  display: none;
+}
+.sidebar .nav-links li.showMenu .sub-menu{
+  display: block;
+}
+.sidebar .nav-links li .sub-menu a{
+  color: #fff;
+  font-size: 15px;
+  padding: 5px 0;
+  white-space: nowrap;
+  opacity: 0.6;
+  transition: all 0.3s ease;
+}
+.sidebar .nav-links li .sub-menu a:hover{
+  opacity: 1;
+}
+.sidebar.close .nav-links li .sub-menu{
+  position: absolute;
+  right:  100%;
+  top: -10px;
+  margin-top: 0;
+  padding: 10px 20px;
+  border-radius: 6px 0 0 6px;
+  opacity: 0;
+  display: block;
+  pointer-events: none;
+  transition: 0s;
+}
+.sidebar.close .nav-links li:hover .sub-menu{
+  top: 0;
+  opacity: 1;
+  pointer-events: auto;
+  transition: all 0.4s ease;
+}
+
+.sidebar.close .nav-links li .sub-menu .link_name{
+  font-size: 15px;
+  width: 15px;
+  opacity: 1;
+  display: block;
+}
+.sidebar .nav-links li .sub-menu.blank{
+  opacity: 1;
+  pointer-events: auto;
+  padding: 3px 20px 6px 16px;
+  opacity: 0;
+  pointer-events: none;
+}
+.sidebar .nav-links li:hover .sub-menu.blank{
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.sidebar.close .profile-details{
+  background: none;
+}
+
+
+
+
+.home-section{
+  position: relative;
+  background: #E4E9F7;
+  height: 100vh;
+  left: 260px;
+  width: calc(100% - 260px);
+  transition: all 0.5s ease;
+}
+.sidebar.close ~ .home-section{
+  left: 78px;
+  width: calc(100% - 78px);
+}
+.home-section .home-content{
+  height: 60px;
+  display: flex;
+  align-items: center;
+}
+.home-section .home-content .bx-menu,
+.home-section .home-content .text{
+  color: #11101d;
+  font-size: 35px;
+}
+.home-section .home-content .bx-menu{
+  margin: 0 15px;
+  cursor: pointer;
+}
+.home-section .home-content .text{
+  font-size: 26px;
+  font-weight: 600;
+}
 

@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<!-- Created by CodingLab |www.youtube.com/CodingLabYT-->
+<html lang="ar" dir="rtl">
+
+<head>
+  <meta charset="UTF-8">
+  <!--<title> Drop Down Sidebar Menu | CodingLab </title>-->
+  <link rel="stylesheet" href="style.css">
+  <!-- Boxiocns CDN Link -->
+  <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+  <div id="mySidebar" class="sidebar">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+   
+    <ul class="nav-links">
+      <li>
+        <div class="iocn-link">
+          <a href="#">
+            <i class='fa fa-book'></i>
+            <span class="link_name">الادب والخيال</span>
+          </a>
+          <i class='bx bxs-chevron-left arrow'></i>
+        </div>
+        <ul class="sub-menu">
+          <li><a href="{{ url_for('Arabic_book', type='novels') }}">الروايات </a></li>
+          <li><a href="#">القصص</a></li>
+          <li><a href="#">الاعمال الكاملة</a></li>
+          <li><a href="#">المسرحيات</a></li>
+          <li><a href="#">تأريخ الادب</a></li>
+          <li><a href="#">الادب الاسلامي</a></li>
+        </ul>
+      </li>
+      <li>
+        <div class="iocn-link">
+          <a href="#">
+            <i class='fa fa-book' ></i>
+            <span class="link_name">التأريخ والجغرافية</span>
+          </a>
+          <i class='bx bxs-chevron-left arrow' ></i>
+        </div>
+        <ul class="sub-menu">
+            <li><a href="#">الدراسات التأريخية </a></li>
+            <li><a href="#">الاستشراق</a></li>
+            <li><a href="#">الحضارات والمدن</a></li>
+            <li><a href="#">الدراسات الجغرافية</a></li>
+            <li><a href="#">الخرائط</a></li>
+            <li><a href="#">الاثار</a></li>
+            <li><a href="#">الاطالس</a></li>
+        </ul>
+      </li>
+
+      <li>
+        <div class="iocn-link">
+          <a href="#">
+            <i class='fa fa-book' ></i>
+            <span class="link_name">الأسرة والطفل</span>
+          </a>
+          <i class='bx bxs-chevron-left arrow' ></i>
+        </div>
+        <ul class="sub-menu">
+          <li><a href="#">الأطفال </a></li>
+          <li><a href="#">شؤون المرأة</a></li>
+          <li><a href="#">تربية الأطفال</a></li>
+          <li><a href="#">الدراسات الجغرافية</a></li>
+          <li><a href="#">العلاقات الزوجية</a></li>
+          <li><a href="#">الجمال</a></li>
+          <li><a href="#">الأزياء</a></li>
+        </ul>
+      </li>
+
+      <li>
+        <div class="iocn-link">
+          <a href="#">
+            <i class='fa fa-book' ></i>
+            <span class="link_name">الكتب السياسية</span>
+          </a>
+          <i class='bx bxs-chevron-left arrow' ></i>
+        </div>
+        <ul class="sub-menu">
+          <li><a href="#">العلوم السياسية </a></li>
+          <li><a href="#">السياسة الدولية</a></li>
+          <li><a href="#">الدبلوماسية</a></li>
+          <li><a href="#">السياسية العربية المعاصرة</a></li>
+          <li><a href="#">السياسة العربية</a></li>
+          <li><a href="#">المنظمات والالحزاب</a></li>
+          <li><a href="#">الدين والسياسة</a></li>
+        </ul>
+      </li>
+
+      <li>
+        <div class="iocn-link">
+          <a href="#">
+            <i class='fa fa-book' ></i>
+            <span class="link_name">العلوم والطبيعة</span>
+          </a>
+          <i class='bx bxs-chevron-left arrow' ></i>
+        </div>
+        <ul class="sub-menu">
+          <li><a href="#">الطبيعة </a></li>
+          <li><a href="#">الرياضيات</a></li>
+          <li><a href="#">الهندسة</a></li>
+          <li><a href="#">الفيزياء</a></li>
+          <li><a href="#">الكيمياء</a></li>
+          <li><a href="#">علم النبات</a></li>
+          <li><a href="#">الصيدلة</a></li>
+        </ul>
+      </li>
+
+      <li>
+        <div class="iocn-link">
+          <a href="#">
+            <i class='fa fa-book' ></i>
+            <span class="link_name">الرياضة والتسلية</span>
+          </a>
+          <i class='bx bxs-chevron-left arrow' ></i>
+        </div>
+        <ul class="sub-menu">
+          <li><a href="#">العاب الكرة </a></li>
+          <li><a href="#">الرياضة المائية</a></li>
+          <li><a href="#">اللياقة البدنية</a></li>
+          <li><a href="#">الأبراج</a></li>
+          <li><a href="#">الرياضة الذهنية</a></li>
+          <li><a href="#">ألغاز</a></li>
+        </ul>
+      </li>
+
+      <li>
+        <div class="iocn-link">
+          <a href="#">
+            <i class='fa fa-book' ></i>
+            <span class="link_name">الاقتصاد والأعمال</span>
+          </a>
+          <i class='bx bxs-chevron-left arrow' ></i>
+        </div>
+        <ul class="sub-menu">
+          <li><a href="#">الاقتصاد </a></li>
+            <li><a href="#">ادارة الأعمال</a></li>
+            <li><a href="#">التأمين والضمان</a></li>
+            <li><a href="#">المحاسبة</a></li>
+            <li><a href="#">التسويق</a></li>
+            <li><a href="#">الاستثمار</a></li>
+        </ul>
+      </li>
+
+      <li>
+        <div class="iocn-link">
+          <a href="#">
+            <i class='fa fa-book' ></i>
+            <span class="link_name">الكتب الاسلامية</span>
+          </a>
+          <i class='bx bxs-chevron-left arrow' ></i>
+        </div>
+        <ul class="sub-menu">
+          <li><a href="#">القران وعلومه </a></li>
+          <li><a href="#">الحديث وعلومه</a></li>
+          <li><a href="#">السيرة النبوية</a></li>
+          <li><a href="#">الفقه واصوله</a></li>
+          <li><a href="#">العقيدة والعبادات</a></li>
+          <li><a href="#">الحركات والمذاهب</a></li>
+          <li><a href="#">التشريع</a></li>
+        </ul>
+      </li>
+
+      <li>
+        <div class="iocn-link">
+          <a href="#">
+            <i class='fa fa-book' ></i>
+            <span class="link_name">الصحافة الاعلام</span>
+          </a>
+          <i class='bx bxs-chevron-left arrow' ></i>
+        </div>
+        <ul class="sub-menu">
+          <li><a href="#">الصحافة </a></li>
+            <li><a href="#">الاعلام</a></li>
+            <li><a href="#">الدوريات</a></li>
+            <li><a href="#">الندوات والمؤتمرات</a></li>
+        </ul>
+      </li>
+
+      
+      <li>
+        <div class="iocn-link">
+          <a href="#">
+            <i class='fa fa-book' ></i>
+            <span class="link_name">الفنون</span>
+          </a>
+          <i class='bx bxs-chevron-left arrow' ></i>
+        </div>
+        <ul class="sub-menu">
+          <li><a href="#">تاريخ الفن </a></li>
+            <li><a href="#">التصوير</a></li>
+            <li><a href="#">الفنون الاسلامية</a></li>
+            <li><a href="#">النحت</a></li>
+            <li><a href="#">الزخرفة والخط العربي</a></li>
+            <li><a href="#">المسرح</a></li>
+            <li><a href="#">النقد الفني</a></li>
+        </ul>
+      </li>
+
+       
+      <li>
+        <div class="iocn-link">
+          <a href="#">
+            <i class='fa fa-book' ></i>
+            <span class="link_name">الكومبيوتر والانترنت</span>
+          </a>
+          <i class='bx bxs-chevron-left arrow' ></i>
+        </div>
+        <ul class="sub-menu">
+          <li><a href="#">الالنترنت </a></li>
+          <li><a href="#">أنظمة التشغيل</a></li>
+          <li><a href="#">لغات البرمجة</a></li>
+          <li><a href="#">شبكات الحاسوب</a></li>
+          <li><a href="#">قواعد البيانات</a></li>
+          <li><a href="#">صيانة الحاسوب</a></li>
+         <li><a href="#">أمن الحاسوب</a></li>
+        </ul>
+      </li>
+
+           
+      <li>
+        <div class="iocn-link">
+          <a href="#">
+            <i class='fa fa-book' ></i>
+            <span class="link_name">الفلسفة</span>
+          </a>
+          <i class='bx bxs-chevron-left arrow' ></i>
+        </div>
+        <ul class="sub-menu">
+          <li><a href="#">المذاهب الفلسفية </a></li>
+            <li><a href="#">المدارس الفلسفية</a></li>
+            <li><a href="#">الفكر الفلسفي</a></li>
+            <li><a href="#">الدراسات الفلسفية</a></li>
+            <li><a href="#">الفلسفة المعاصرة</a></li>
+            <li><a href="#">علم المنطق</a></li>
+            <li><a href="#">فلسفة العلوم</a></li>
+        </ul>
+      </li>
+
+      <li>
+        <div class="iocn-link">
+          <a href="#">
+            <i class='fa fa-book' ></i>
+            <span class="link_name">السير والمذكرات</span>
+          </a>
+          <i class='bx bxs-chevron-left arrow' ></i>
+        </div>
+        <ul class="sub-menu">
+          <li><a href="#">الأنبياء </a></li>
+          <li><a href="#">السياسيون</a></li>
+          <li><a href="#">العلماء</a></li>
+          <li><a href="#">الشعراء والادباء</a></li>
+          <li><a href="#">رجال الدين</a></li>
+        </ul>
+      </li>
+    </ul>
+  
+  </div>
+
+  <div id="main">
+    <button class="openbtn" onclick="openNav()">&#9776; عرض القائمة</button>
+  </div>
+
+
+  <script>
+    let arrow = document.querySelectorAll(".arrow");
+    for (var i = 0; i < arrow.length; i++) {
+      arrow[i].addEventListener("click", (e) => {
+        let arrowParent = e.target.parentElement.parentElement;//selecting main parent of arrow
+        arrowParent.classList.toggle("showMenu");
+      });
+    }
+    let sidebar = document.querySelector(".sidebar");
+    let sidebarBtn = document.querySelector(".bx-menu");
+    console.log(sidebarBtn);
+    sidebarBtn.addEventListener("click", () => {
+      sidebar.classList.toggle("close");
+    });
+  </script>
+</body>
+
+</html>

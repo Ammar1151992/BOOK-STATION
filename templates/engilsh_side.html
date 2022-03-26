@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<!-- Created by CodingLab |www.youtube.com/CodingLabYT-->
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8">
+    <!--<title> Drop Down Sidebar Menu | CodingLab </title>-->
+    <link rel="stylesheet" href="style.css">
+    <!-- Boxiocns CDN Link -->
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   </head>
+<body>
+  <div id="mySidebar" class="sidebar">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+   
+    <ul class="nav-links">
+      <li>
+        <div class="iocn-link">
+          <a href="#">
+            <i class='fa fa-book'></i>
+            <span class="link_name">الكتب الانكليزية</span>
+          </a>
+          <i class='bx bxs-chevron-left arrow'></i>
+        </div>
+        <ul class="sub-menu">
+          <li><a href="{{ url_for('Arabic_book', type='novels') }}">Architecture </a></li>
+          <li><a href="#">Antiques & Collectibles</a></li>
+          <li><a href="#">Art</a></li>
+          <li><a href="#">Graphic Novels and comics</a></li>
+          <li><a href="#">Juvenile Fiction</a></li>
+          <li><a href="#">Computers</a></li>
+          <li><a href="#">Self-Help</a></li>
+          <li><a href="#">Design</a></li>
+          <li><a href="#">Foreign Language Study</a></li>
+          <li><a href="#">Fiction</a></li>
+          <li><a href="#">Business & Economics</a></li>
+        </ul>
+      </li>
+    </ul>
+  
+  </div>
+
+  <div id="main">
+    <button class="openbtn" onclick="openNav()">&#9776; عرض القائمة</button>
+  </div>
+
+  <script>
+  let arrow = document.querySelectorAll(".arrow");
+  for (var i = 0; i < arrow.length; i++) {
+    arrow[i].addEventListener("click", (e)=>{
+   let arrowParent = e.target.parentElement.parentElement;//selecting main parent of arrow
+   arrowParent.classList.toggle("showMenu");
+    });
+  }
+  let sidebar = document.querySelector(".sidebar");
+  let sidebarBtn = document.querySelector(".bx-menu");
+  console.log(sidebarBtn);
+  sidebarBtn.addEventListener("click", ()=>{
+    sidebar.classList.toggle("close");
+  });
+  </script>
+</body>
+</html>

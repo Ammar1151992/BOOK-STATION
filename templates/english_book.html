@@ -1,4 +1,61 @@
+
 {% extends "main.html" %}
+
 {% block content %}
 
+{% if books %}
+
+
+{% include "engilsh_side.html" %}
+<div class=" container ">
+    <div class="scroll-gb">
+        <div class="scroll-div">
+            {% for book in books %}
+
+            <ul>
+                <!--1------------------------------------>
+                <li class="item-a">
+                    <!--box-slider--------------->
+
+                    <div class="box">
+                        <!--img-box---------->
+
+                        <div class="slide-img">
+                            <img alt="1" src="{{ book['image_file'] }}">
+                            <!--overlayer---------->
+                            <div class="overlay_flask">
+                                <!--buy-btn------>
+                                <div class="buy-btn addCart" data-product-id="{{ book['id'] }}">اضف الى العربة</div>
+                            </div>
+                        </div>
+
+                        <!--detail-box--------->
+                        <div class="detail-box">
+                            <!--type-------->
+                            <div class="type">
+                                <a href="{{ url_for('vew_product', id=book.id) }}" class="productName">{{
+                                    book['name_of_book'] }}</a>
+                                <a href="{{ url_for('vew_product', id=book.id) }}"><span>عرض</span></a>
+                            </div>
+                            <!--price-------->
+                            <a href="{{ url_for('vew_product', id=book.id) }}" class="priceValue">{{ book['price']
+                                }}</a>
+
+                        </div>
+
+                    </div>
+
+                </li>
+            </ul>
+
+            {% endfor %}
+        </div>
+
+    </div>
+    <div class="clear"></div>
+</div>
+
+{% else %}
+<h1>djnbvckdbvkhdjsvcjkd</h1>
+{% endif %}
 {% endblock content %}

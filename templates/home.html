@@ -11,7 +11,7 @@
                         <div class="des_write">
                             <h1>تخفيضات تصل الى %50</h1>
                             <ul>
-                                <li class="shop"><a href="#"> تسوق الان</a></li>
+                                <li class="shop"><a href="{{ url_for('discount', type='novels') }}">تسوق الان</a></li>
                             </ul>
                         </div>
                     </div>
@@ -23,7 +23,7 @@
                         <div class="sch_write">
                             <h1>قرطاسيات وادوات مدرسية</h1>
                             <ul>
-                                <li class="shop_1"><a href="#"> تسوق الان</a></li>
+                                <li class="shop_1"><a href="{{ url_for('school', type='novels') }}"> تسوق الان</a></li>
                             </ul>
                         </div>
                     </div>
@@ -35,7 +35,7 @@
                         <div class="sch_write">
                             <h1> كتب لتطوير العمل</h1>
                             <ul>
-                                <li class="shop_2"><a href="#"> تسوق الان</a></li>
+                                <li class="shop_2"><a href="{{ url_for('business', type='novels') }}"> تسوق الان</a></li>
                             </ul>
                         </div>
                     </div>
@@ -46,201 +46,133 @@
     </div>
 </div>
 
-{% if books %}
-<div class="swiper mySwiper_flask">
-   
-    <div class="swiper-wrapper">
-        {% for book in books %}
-        <div class="swiper-slide slider_flask">
-           
-            <section class="slider">
-                <ul>
-                    <!--1------------------------------------>
-                
-                    <li class="item-a">
-                        <!--box-slider--------------->
-                        
-                        <div class="box">
-                           
-                            <!--img-box---------->
-                            <div class="slide-img">
-                                <img alt="1" src="{{ book['image_file'] }}">
-                                
-                                <!--overlayer---------->
-                                <div class="overlay_flask">
-                                    <!--buy-btn------>
-                                    <div class="buy-btn addCart" data-product-id="{{ book['id'] }}">اضف الى العربة</div>
-                                </div>
-                            </div>
-                   
-                            <!--detail-box--------->
-                            <div class="detail-box">
-                                <!--type-------->
-                                <div class="type">
-                                    <a href="{{ url_for('vew_product', id=book.id) }}" class="productName">{{ book['name_of_book'] }}</a>
-                                    <a href="{{ url_for('vew_product', id=book.id) }}"><span>عرض</span></a>
-                                </div>
-                                <!--price-------->
-                                <a href="{{ url_for('vew_product', id=book.id) }}" class="priceValue">{{ book['price'] }}</a>
-
-                            </div>
-
-                        </div>
-                    
-                    </li>
-                </ul>
-           
-            </section>
-       
+<div class="container ">
+    <div class="sliders_parent silder_marg ">
+        <div class="sliders_child">
+            <h1 class="title ">الكتب الاكثر مبيعاً</h1>
         </div>
-        {% endfor %}
     </div>
-    <div class="swiper-button-next"></div>
-    <div class="swiper-button-prev"></div>
-    <div class="swiper-pagination"></div>
-    
-</div>
-{% endif %}
-<div class="container padd">
-    <!-- Slider main container -->
-    <div class="swiper mySwiper_release">
-        <!-- Additional required wrapper -->
-        <div class="swiper-wrapper">
-            <!-- Slides -->
-            <div class="swiper-slide sliders">
-                <h4 class="silders_des">It is end with us</h4>
-                <hr>
-                <img src="..//static/books/best/1.jpg" alt="">
-                <h4 class="silders_price">10<span>IQD</span></h4>
-                <div class="hover">
-                    <h4 class="bag">10<span>IQD</span></h4>
-                    <h6 class="bag">أضف الى العربة</h6>
-                </div>
-            </div>
-            <div class="swiper-slide sliders">
-                <h4 class="silders_des">مطبخ منال العالم</h4>
-                <hr>
-                <img src="..//static/books/best/10.jpg" alt="">
-                <h4 class="silders_price">10<span>IQD</span></h4>
-                <div class="hover">
-                    <h4 class="bag">10<span>IQD</span></h4>
-                    <h6 class="bag">أضف الى العربة</h6>
-                </div>
-            </div>
-            <div class="swiper-slide sliders">
-                <h4 class="silders_des">ماذا ترسم؟</h4>
-                <hr>
-                <img src="..//static/books/best/11.jpg" alt="">
-                <h4 class="silders_price">10<span>IQD</span></h4>
-                <div class="hover">
-                    <h4 class="bag">10<span>IQD</span></h4>
-                    <h6 class="bag">أضف الى العربة</h6>
-                </div>
-            </div>
-            <div class="swiper-slide sliders">
-                <h4 class="silders_des">Take your breath away</h4>
-                <hr>
-                <img src="..//static/books/best/2.jpg" alt="">
-                <h4 class="silders_price">10<span>IQD</span></h4>
-                <div class="hover">
-                    <h4 class="bag">10<span>IQD</span></h4>
-                    <h6 class="bag">أضف الى العربة</h6>
-                </div>
-            </div>
-            <div class="swiper-slide sliders">
-                <h4 class="silders_des">The Maid</h4>
-                <hr>
-                <img src="..//static/books/best/3.jpg" alt="">
-                <h4 class="silders_price">10<span>IQD</span></h4>
-                <div class="hover">
-                    <h4 class="bag">10<span>IQD</span></h4>
-                    <h6 class="bag">أضف الى العربة</h6>
-                </div>
-            </div>
-            <div class="swiper-slide sliders">
-                <h4 class="silders_des">أنثى افتراضية</h4>
-                <hr>
-                <img src="..//static/books/best/12.jpg" alt="">
-                <h4 class="silders_price">10<span>IQD</span></h4>
-                <div class="hover">
-                    <h4 class="bag">10<span>IQD</span></h4>
-                    <h6 class="bag">أضف الى العربة</h6>
-                </div>
-            </div>
-            <div class="swiper-slide sliders">
-                <h4 class="silders_des">Ugly Love</h4>
-                <hr>
-                <img src="..//static/books/best/6.jpg" alt="">
-                <h4 class="silders_price">10<span>IQD</span></h4>
-                <div class="hover">
-                    <h4 class="bag">10<span>IQD</span></h4>
-                    <h6 class="bag">أضف الى العربة</h6>
-                </div>
-            </div>
-            <div class="swiper-slide sliders">
-                <h4 class="silders_des">أنستا حياة</h4>
-                <hr>
-                <img src="..//static/books/best/13.jpg" alt="">
-                <h4 class="silders_price">10<span>IQD</span></h4>
-                <div class="hover">
-                    <h4 class="bag">10<span>IQD</span></h4>
-                    <h6 class="bag">أضف الى العربة</h6>
-                </div>
-            </div>
-            <div class="swiper-slide sliders">
-                <h4 class="silders_des">Remember My Name</h4>
-                <hr>
-                <img src="..//static/books/best/7.jpg" alt="">
-                <h4 class="silders_price">10<span>IQD</span></h4>
-                <div class="hover">
-                    <h4 class="bag">10<span>IQD</span></h4>
-                    <h6 class="bag">أضف الى العربة</h6>
-                </div>
-            </div>
-            <div class="swiper-slide sliders">
-                <h4 class="silders_des">أوربا تاريخ وجيز</h4>
-                <hr>
-                <img src="..//static/books/best/14.jpg" alt="">
-                <h4 class="silders_price">10<span>IQD</span></h4>
-                <div class="hover">
-                    <h4 class="bag">10<span>IQD</span></h4>
-                    <h6 class="bag">أضف الى العربة</h6>
-                </div>
-            </div>
-            <div class="swiper-slide sliders">
-                <h4 class="silders_des">في عالم اخر</h4>
-                <hr>
-                <img src="..//static/books/best/16.jpg" alt="">
-                <h4 class="silders_price">10<span>IQD</span></h4>
-                <div class="hover">
-                    <h4 class="bag">10<span>IQD</span></h4>
-                    <h6 class="bag">أضف الى العربة</h6>
-                </div>
-            </div>
-            <div class="swiper-slide sliders">
-                <h4 class="silders_des">Hamlet</h4>
-                <hr>
-                <img src="..//static/books/best/15.jpg" alt="">
-                <h4 class="silders_price">10<span>IQD</span></h4>
-                <div class="hover">
-                    <h4 class="bag">10<span>IQD</span></h4>
-                    <h6 class="bag">أضف الى العربة</h6>
-                </div>
-            </div>
+    <div class="swiper mySwiper_home">
 
+        <div class="swiper-wrapper">
+            {% for book in books %}
+            <div class="swiper-slide slider_flask">
+
+                <section class="slider">
+                    <ul>
+                        <!--1------------------------------------>
+
+                        <li class="item-a">
+                            <!--box-slider--------------->
+
+                            <div class="box">
+
+                                <!--img-box---------->
+                                <div class="slide-img">
+                                    <img alt="1" src="{{ book['image_file'] }}">
+
+                                    <!--overlayer---------->
+                                    <div class="overlay_flask">
+                                        <!--buy-btn------>
+                                        <div class="buy-btn addCart" data-product-id="{{ book['id'] }}">اضف الى العربة
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!--detail-box--------->
+                                <div class="detail-box">
+                                    <!--type-------->
+                                    <div class="type">
+                                        <a href="{{ url_for('vew_product', id=book.id) }}" class="productName">{{
+                                            book['name_of_book'] }}</a>
+                                        <a href="{{ url_for('vew_product', id=book.id) }}"><span>عرض</span></a>
+                                    </div>
+                                    <!--price-------->
+                                    <a href="{{ url_for('vew_product', id=book.id) }}" class="priceValue">{{
+                                        book['price'] }}</a>
+
+                                </div>
+
+                            </div>
+
+                        </li>
+                    </ul>
+
+                </section>
+
+            </div>
+            {% endfor %}
         </div>
-        <!-- If we need pagination -->
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
         <div class="swiper-pagination"></div>
 
-        <!-- If we need navigation buttons -->
-        <div class="swiper-button-prev"></div>
-        <div class="swiper-button-next"></div>
-
-        <!-- If we need scrollbar -->
-        <div class="swiper-scrollbar"></div>
     </div>
 
 </div>
+<div class="container ">
+    <div class="swiper mySwiper_home padd respo">
+
+        <div class="swiper-wrapper">
+            {% for book in books %}
+            <div class="swiper-slide slider_flask">
+
+                <section class="slider">
+                    <ul>
+                        <!--1------------------------------------>
+
+                        <li class="item-a">
+                            <!--box-slider--------------->
+
+                            <div class="box">
+
+                                <!--img-box---------->
+                                <div class="slide-img">
+                                    <img alt="1" src="{{ book['image_file'] }}">
+
+                                    <!--overlayer---------->
+                                    <div class="overlay_flask">
+                                        <!--buy-btn------>
+                                        <div class="buy-btn addCart" data-product-id="{{ book['id'] }}">اضف الى العربة
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!--detail-box--------->
+                                <div class="detail-box">
+                                    <!--type-------->
+                                    <div class="type">
+                                        <a href="{{ url_for('vew_product', id=book.id) }}" class="productName">{{
+                                            book['name_of_book'] }}</a>
+                                        <a href="{{ url_for('vew_product', id=book.id) }}"><span>عرض</span></a>
+                                    </div>
+                                    <!--price-------->
+                                    <a href="{{ url_for('vew_product', id=book.id) }}" class="priceValue">{{
+                                        book['price'] }}</a>
+
+                                </div>
+
+                            </div>
+
+                        </li>
+                    </ul>
+
+                </section>
+
+            </div>
+            {% endfor %}
+        </div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-pagination"></div>
+
+    </div>
+
+</div>
+
+
+
+
 <div class="layout padd">
     <div class="overlay_2">
         <div class="container">

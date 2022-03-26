@@ -1,0 +1,30 @@
+{% extends "main.html" %}
+{% block content %}
+
+{% if posts %}
+<div class="container">
+    <h3>نتائج البحث: {{ searched }}</h3>
+    <div class="view_content">
+        <div class="image_des padd">
+            <img src="{{ posts['image_file'] }}" alt="">
+        </div>
+        <div class="content_des">
+            <h2>{{ posts['name_of_book'] }}</h2>
+            <h5>عن الكتاب :</h5>
+            <p>{{ posts['des_of_book'] }}</p>
+            <h3 class="content_price">السعر : {{ posts['price'] }}</h3>
+            <a href="#" class="buy">اضف الى العربة</a>
+        </div>
+        <div class="content_details">
+            <h3>اسم الكاتب : {{ posts['author'] }}</h3>
+            <h3>سنة النشر : {{ posts['date_of_copyright'] }}</h3>
+
+        </div>
+    </div>
+</div>
+{% else %}
+<div class="container">
+<h1 class="notfound">): لم يتم العثور على  {{ searched }}</h1>
+</div>
+{% endif %}
+{% endblock content %}
